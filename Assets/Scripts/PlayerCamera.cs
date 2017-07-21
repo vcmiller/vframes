@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour {
         rotation = transform.rotation;
 	}
 
-    private void LateUpdate() {
+    private void Update() {
         transform.rotation = rotation;
 
         position = Vector3.MoveTowards(position, transform.parent.position + offsetFromPlayer, moveSpeed * Time.deltaTime);
