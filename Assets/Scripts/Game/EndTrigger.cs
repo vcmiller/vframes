@@ -16,6 +16,7 @@ public class EndTrigger : MonoBehaviour {
     }
 
     void Next() {
+        Progress.inst.MarkComplete(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(nextLevel);
     }
 }

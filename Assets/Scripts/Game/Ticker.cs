@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Ticker : MonoBehaviour {
     public static Ticker inst { get; private set; }
+    public static float tickMultiplier = 1;
 
     public delegate void Listener();
     public static event Listener earlyTickEvent;
@@ -17,13 +18,13 @@ public class Ticker : MonoBehaviour {
 
     public float timeUntilTick {
         get {
-            return delay - timeSinceTick;
+            return actualDelay - timeSinceTick;
         }
     }
 
     public float timeSinceTick {
         get {
-            return Mathf.Clamp(Time.time - lastTick, 0, delay);
+            return Mathf.Clamp(Time.time - lastTick, 0, actualDelay);
         }
     }
 
@@ -35,7 +36,13 @@ public class Ticker : MonoBehaviour {
 
     public float timeSinceTickRatio {
         get {
-            return timeSinceTick / delay;
+            return timeSinceTick / actualDelay;
+        }
+    }
+
+    public float actualDelay {
+        get {
+            return delay / tickMultiplier;
         }
     }
 
@@ -48,7 +55,7 @@ public class Ticker : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (timeSinceTick >= delay) {
+		if (timeSinceTick >= actualDelay) {
             lastTick = Time.time;
 
             if (earlyTickEvent != null) {

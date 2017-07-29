@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DashPlayerController : PlayerController<ControlProxy> {
     private bool mouseMode = true;
@@ -22,6 +23,10 @@ public class DashPlayerController : PlayerController<ControlProxy> {
         if (value != 0) {
             mouseMode = false;
         }
+    }
+
+    public void Button_Menu() {
+        SceneManager.LoadScene(0);
     }
 
     public void Axis_Vertical(float value) {

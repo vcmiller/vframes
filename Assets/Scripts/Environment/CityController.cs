@@ -15,7 +15,7 @@ public class CityController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	public void ReallyLateUpdate () {
         transform.position = camera.position * followRatio + offsetFromCamera;
 
         Bounds bounds = boundsObject.bounds;

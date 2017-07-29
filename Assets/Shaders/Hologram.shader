@@ -31,31 +31,17 @@
 			float _LineSize;
 			float _TimeScale;
 
-			struct appdata
+			void vert (float4 vertex : POSITION, out float4 outPos : SV_POSITION)
 			{
-				float4 vertex : POSITION;
-			};
-
-			struct v2f
-			{
-				float4 vertex : SV_POSITION;
-				float2 screen : TEXCOORD0;
-			};
-			
-			v2f vert (appdata v)
-			{
-				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.screen = ComputeScreenPos(o.vertex);
-				return o;
+				outPos = UnityObjectToClipPos(vertex);
 			}
 			
-			fixed4 frag (v2f i) : SV_Target
+			fixed4 frag (UNITY_VPOS_TYPE screen : VPOS) : SV_Target
 			{
 				// sample the texture
 				fixed4 col = _Color;
 
-				col.a *= abs(sin(3.1415 * (i.vertex.y / _LineSize + _Time.y * _TimeScale)));
+				col.a *= abs(sin(3.1415 * ((screen.y * _ScreenParams.y / _LineSize) + _Time.y * _TimeScale)));
 				// apply fog
 				return col;
 			}

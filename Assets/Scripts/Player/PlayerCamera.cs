@@ -26,5 +26,10 @@ public class PlayerCamera : MonoBehaviour {
         moving = Vector3.SqrMagnitude(transform.position - position) > moveSpeed * Time.deltaTime / 2;
 
         transform.position = position;
+
+        var city= FindObjectOfType<CityController>();
+        if (city) {
+            city.ReallyLateUpdate();
+        }
     }
 }
