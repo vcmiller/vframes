@@ -45,9 +45,12 @@ public class Bullet : MonoBehaviour {
     void LateTick() {
         if (primed && !fired) {
             Vector3 newPos = transform.position + transform.forward * range;
+            newPos.y = 1;
+            Vector3 curPos = transform.position;
+            curPos.y = 1;
             RaycastHit hit;
-            if (Physics.Linecast(transform.position, newPos, out hit) ||
-                Physics.Linecast(newPos, transform.position, out hit)) {
+            if (Physics.Linecast(curPos, newPos, out hit) ||
+                Physics.Linecast(newPos, curPos, out hit)) {
                 Vector3 hitPoint = hit.point;
 
                 var root = hit.transform.root;

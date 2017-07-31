@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour {
     public Bullet prefab;
-    public GameObject fired;
+    public Transform barrel;
+    public Animator animator { get; private set; }
+    public GameObject fired { get; private set; }
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         Ticker.earlyTickEvent += Fire;
+        animator = GetComponentInChildren<Animator>();
 	}
 	
 	void Fire() {
@@ -19,7 +22,11 @@ public class Turret : MonoBehaviour {
             transform.forward = dir;
         }
 
-        fired = Instantiate(prefab.gameObject, transform.position + transform.forward + Vector3.up, transform.rotation);
+        fired = Instantiate(prefab.gameObject, barrel.position, transform.rotation);
+        if (animator) {
+            print("HI");
+            animator.SetTrigger("Fire");
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
