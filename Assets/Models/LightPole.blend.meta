@@ -1,67 +1,15 @@
 fileFormatVersion: 2
-guid: 3d66578fd0cbd494e88ad820fbf420b6
-timeCreated: 1500617561
+guid: 34f08ba17ce7f9d4cafe8bdbee8af9b8
+timeCreated: 1501466689
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: PlatformCap
-    100002: PlatformCenter
-    100004: PlatformCorner
-    100006: PlatformCorner45
-    100008: PlatformCornerInner
-    100010: PlatformCornerInner45
-    100012: PlatformDiagonal1
-    100014: PlatformDiagonal2
-    100016: PlatformEdge
-    100018: PlatformNarrow
-    100020: //RootNode
-    100022: PlatformSingle
-    400000: PlatformCap
-    400002: PlatformCenter
-    400004: PlatformCorner
-    400006: PlatformCorner45
-    400008: PlatformCornerInner
-    400010: PlatformCornerInner45
-    400012: PlatformDiagonal1
-    400014: PlatformDiagonal2
-    400016: PlatformEdge
-    400018: PlatformNarrow
-    400020: //RootNode
-    400022: PlatformSingle
-    2300000: PlatformCap
-    2300002: PlatformCenter
-    2300004: PlatformCorner
-    2300006: PlatformCorner45
-    2300008: PlatformCornerInner
-    2300010: PlatformCornerInner45
-    2300012: PlatformDiagonal1
-    2300014: PlatformDiagonal2
-    2300016: PlatformEdge
-    2300018: PlatformNarrow
-    2300020: PlatformSingle
-    3300000: PlatformCap
-    3300002: PlatformCenter
-    3300004: PlatformCorner
-    3300006: PlatformCorner45
-    3300008: PlatformCornerInner
-    3300010: PlatformCornerInner45
-    3300012: PlatformDiagonal1
-    3300014: PlatformDiagonal2
-    3300016: PlatformEdge
-    3300018: PlatformNarrow
-    3300020: PlatformSingle
-    4300000: PlatformCorner45
-    4300002: PlatformDiagonal2
-    4300004: PlatformCornerInner45
-    4300006: PlatformCornerInner
-    4300008: PlatformCenter
-    4300010: PlatformEdge
-    4300012: PlatformCorner
-    4300014: PlatformDiagonal1
-    4300016: PlatformCap
-    4300018: PlatformNarrow
-    4300020: PlatformSingle
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -99,7 +47,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -114,7 +62,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -130,10 +78,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

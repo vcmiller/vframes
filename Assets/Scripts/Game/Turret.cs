@@ -23,8 +23,8 @@ public class Turret : MonoBehaviour {
         }
 
         fired = Instantiate(prefab.gameObject, barrel.position, transform.rotation);
+        fired.GetComponent<Bullet>().startPoint = transform.position + transform.forward;
         if (animator) {
-            print("HI");
             animator.SetTrigger("Fire");
         }
     }

@@ -50,7 +50,6 @@ public class MovingPlatform : MonoBehaviour {
         LateTick();
 
         for (int i = 0; i < moveOnStart; i++) {
-            print("HI");
             EarlyTick();
             LateTick();
         }

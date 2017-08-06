@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour {
     public LineRenderer trail;
     public float flashSpeed = 1;
     public bool hitTarget { get; private set; }
+    public Vector3 startPoint { get; set; }
 
     // Use this for initialization
     void Awake() {
@@ -44,9 +45,9 @@ public class Bullet : MonoBehaviour {
 
     void LateTick() {
         if (primed && !fired) {
-            Vector3 newPos = transform.position + transform.forward * range;
+            Vector3 newPos = startPoint + transform.forward * range;
             newPos.y = 1;
-            Vector3 curPos = transform.position;
+            Vector3 curPos = startPoint;
             curPos.y = 1;
             RaycastHit hit;
             if (Physics.Linecast(curPos, newPos, out hit) ||
