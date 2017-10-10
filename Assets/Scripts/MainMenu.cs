@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void Update() {
-        multiplierDisplay.text = defaultText + " (current: x" + Ticker.tickMultiplier + ")";
+        multiplierDisplay.text = defaultText + " (x" + Ticker.tickMultiplier + ")";
     }
 
     public void Play(string level) {
