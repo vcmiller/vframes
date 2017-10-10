@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DashPlayerController : PlayerController<ControlProxy> {
+public class DashPlayerController : PlayerController<DashProxy> {
     private bool mouseMode = true;
     public int mousePlaneLayerMask { get; private set; }
 
@@ -41,8 +41,8 @@ public class DashPlayerController : PlayerController<ControlProxy> {
         mousePlaneLayerMask = LayerMask.GetMask("MouseTarget");
     }
 
-    protected override void Update() {
-        base.Update();
+    public override void GetInput() {
+        base.GetInput();
 
         if (mouseMode) {
             UpdateDirectionFromMouse();
@@ -64,7 +64,7 @@ public class DashPlayerController : PlayerController<ControlProxy> {
         
         if (v.sqrMagnitude > 0.4f) {
             v = v.normalized;
-            controlled.movementInput = v;
+            controlled.movement = v;
         }
     }
 
@@ -77,7 +77,7 @@ public class DashPlayerController : PlayerController<ControlProxy> {
             toHit.y = 0;
             toHit = toHit.normalized;
 
-            controlled.movementInput = toHit;
+            controlled.movement = toHit;
         }
     }
 }

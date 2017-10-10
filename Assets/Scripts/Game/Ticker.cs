@@ -56,6 +56,8 @@ public class Ticker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (timeSinceTick >= actualDelay) {
+            print("TICKER TICK " + gameObject.name);
+
             lastTick = Time.time;
 
             if (earlyTickEvent != null) {

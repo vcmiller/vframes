@@ -18,7 +18,7 @@ public class LevelSelect : MonoBehaviour {
 
                 var b = obj.GetComponent<Button>();
                 var text = obj.GetComponentInChildren<Text>();
-                text.text = "Level " + (i + 1);
+                text.text = "LEVEL " + (i + 1);
 
                 int cpy = i;
 

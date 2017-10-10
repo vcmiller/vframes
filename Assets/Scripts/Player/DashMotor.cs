@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashMotor : MonoBehaviour {
-    public ControlProxy proxy { get; private set; }
+public class DashMotor : BasicMotor<DashProxy> {
     public CapsuleTrail trail { get; private set; }
 
     public float dashDistance = 2;
@@ -16,21 +15,21 @@ public class DashMotor : MonoBehaviour {
     private Quaternion meshRotation;
 
     // Use this for initialization
-    void Start () {
-        proxy = GetComponent<ControlProxy>();
-        trail = GetComponent<CapsuleTrail>();
+    protected override void Awake() {
+        base.Awake();
 
+        trail = GetComponent<CapsuleTrail>();
         meshRotation = mesh.rotation;
     }
 
     private Vector3 inputSnapped() {
-        Vector3 v = proxy.movementInput;
+        Vector3 v = control.movement;
         v.x = Mathf.Round(v.x);
         v.z = Mathf.Round(v.z);
         return v;
     }
 
-    private void Update() {
+    public override void TakeInput() {
         directionIndicator.position = transform.position + inputSnapped() * dashDistance + Vector3.up;
         directionIndicator.transform.rotation = Quaternion.LookRotation(Vector3.up, inputSnapped());
     }
@@ -41,6 +40,7 @@ public class DashMotor : MonoBehaviour {
     }
 
     void OnTick() {
+        print("TICK");
         Vector3 oldPos = transform.position;
         transform.position += inputSnapped() * dashDistance;
 
